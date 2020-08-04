@@ -2,11 +2,6 @@ import * as React from "react";
 
 class todoForm extends React.Component {
 
-
-    constructor(props) {
-        super(props);
-    }
-
     addTodo = () => {
         let text = document.getElementById("inputBox").value;
         this.props.addTodo(text);
@@ -17,7 +12,6 @@ class todoForm extends React.Component {
             <input type="text" id="inputBox"/>
             <button onClick={this.addTodo}>add</button>
         </div>
-
     }
 }
 
