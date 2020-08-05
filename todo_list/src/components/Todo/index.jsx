@@ -3,10 +3,6 @@ import './todo.css'
 
 class todo extends React.Component {
 
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         return <div className={`${this.props.hitStatus === 'DONE' ? 'is-done' : ''}`}
                     onClick={this.handleMark}>
@@ -22,10 +18,8 @@ class todo extends React.Component {
 
     handleMark = () => {
         if (this.props.hitStatus === 'DOING') {
-            console.log("markDone")
             this.props.markDone(this.props.id)
         } else {
-            console.log('markCancel')
             this.props.markCancel(this.props.id)
         }
     }

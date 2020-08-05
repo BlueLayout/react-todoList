@@ -1,6 +1,6 @@
 import {connect} from "react-redux";
-import Todo from "../Todo"
-import {deleteTodo, markCancel, markDone} from "../../actions"
+import Todo from "../components/Todo"
+import {deleteTodo, markCancel, markDone} from "../actions"
 
 
 const mapDispatchToProps = dispatch => ({
