@@ -3,7 +3,7 @@ import TodoForm from "../TodoForm"
 import {addTodo} from "../../actions"
 
 const mapDispatchToProps = dispatch => ({
-    addTodo: (data) => dispatch(addTodo(data))
+    addTodo: (todo) => dispatch(addTodo(todo))
 });
 
 export default connect(null, mapDispatchToProps)(TodoForm)

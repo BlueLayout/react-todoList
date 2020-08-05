@@ -4,7 +4,7 @@ class todoForm extends React.Component {
 
     addTodo = () => {
         let text = document.getElementById("inputBox").value;
-        this.props.addTodo(text);
+        this.props.addTodo({text: text, hitStatus: 'DOING'});
     }
 
     render() {
@@ -13,6 +13,8 @@ class todoForm extends React.Component {
             <button onClick={this.addTodo}>add</button>
         </div>
     }
+
+
 }
 
 export default todoForm;
