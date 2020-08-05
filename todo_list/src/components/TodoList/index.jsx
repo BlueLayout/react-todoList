@@ -4,9 +4,9 @@ import TodoContainer from "../TodoContainer"
 class todoList extends React.Component {
 
     render() {
-        return new Array(this.props.todoList.length).fill(0).map(((value, index) =>
+        return this.props.todoList.map(((value, index) =>
                 <TodoContainer key={index}
-                               hitStatus={this.props.todoList[index].hitStatus}
+                               hitStatus={value.hitStatus}
                                text={this.props.todoList[index].text}
                                id={this.props.todoList[index].id}
                 />
