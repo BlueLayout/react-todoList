@@ -17,3 +17,8 @@ export const markCancel = (id) => ({
     type: 'MARK_CANCEL',
     id
 });
+
+export const initTODOs = (todos) => ({
+    type: 'INIT_TODO',
+    todos
+});

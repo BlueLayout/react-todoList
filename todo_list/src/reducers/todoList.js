@@ -11,6 +11,14 @@ export const todoList = (state = [], action) => {
         case "MARK_CANCEL":
             state[action.id].hitStatus = 'DOING';
             return [...state];
+        case "INIT_TODO":
+            return action.todos.map(todo => {
+                return {
+                    id: todo.id,
+                    text: todo.content,
+                    hitStatus: todo.status ? 'DONE' : 'DOING'
+                }
+            });
         default:
             return state;
     }
