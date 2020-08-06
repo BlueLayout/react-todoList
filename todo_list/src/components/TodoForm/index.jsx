@@ -1,4 +1,5 @@
 import * as React from "react";
+import {createTODOs} from "../../api/TodoListApi";
 
 class todoForm extends React.Component {
 
@@ -10,10 +11,18 @@ class todoForm extends React.Component {
     }
 
     addTodo = () => {
-        this.props.addTodo({text: this.state.text, hitStatus: 'DOING'});
-        this.setState({
-            text: ''
-        })
+        let todoData = {
+            id: null,
+            content: '',
+            status: false
+        };
+        createTODOs({content: this.state.text, status: false}).then(res => {
+            todoData = res.data;
+            this.props.addTodo(todoData);
+            this.setState({
+                text: ''
+            })
+        }).catch(err => console.log(err));
     };
 
     render() {

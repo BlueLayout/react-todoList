@@ -1,22 +1,21 @@
-let count = 0;
 export const todoList = (state = [], action) => {
     switch (action.type) {
         case "ADD_TODO":
-            return [...state, {id: count++, text: action.todo.text, hitStatus: 'DOING'}];
+            return [...state, {id: action.todo.id, content: action.todo.content, status: false}];
         case "MARK_DONE":
-            state[action.id].hitStatus = 'DONE';
+            state[action.id - 1].status = true;
             return [...state];
         case "DELETE_TODO":
             return [...state.filter(todo => todo.id !== action.id)];
         case "MARK_CANCEL":
-            state[action.id].hitStatus = 'DOING';
+            state[action.id - 1].status = false;
             return [...state];
         case "INIT_TODO":
             return action.todos.map(todo => {
                 return {
                     id: todo.id,
-                    text: todo.content,
-                    hitStatus: todo.status ? 'DONE' : 'DOING'
+                    content: todo.content,
+                    status: todo.status
                 }
             });
         default:

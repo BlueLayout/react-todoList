@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const baseUrl = 'https://5e9ec500fb467500166c4658.mockapi.io';
+const baseUrl = 'https://5f2a3dde6ae5cc001642224e.mockapi.io';
 
 const service = axios.create({
     baseURL: baseUrl,

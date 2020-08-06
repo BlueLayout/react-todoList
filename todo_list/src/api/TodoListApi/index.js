@@ -7,10 +7,11 @@ export function getTODOs() {
     })
 }
 
-export function updateTODOs(id) {
+export function updateTODOs(id, todo) {
     return request({
         url: `/todos/${id}`,
-        method: 'put'
+        method: 'put',
+        data: todo
     })
 }
 
@@ -18,7 +19,7 @@ export function createTODOs(todo) {
     return request({
         url: `/todos`,
         method: 'post',
-        todo
+        data: todo
     })
 }
 

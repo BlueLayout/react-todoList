@@ -6,7 +6,6 @@ class todoList extends React.Component {
 
     componentDidMount() {
         getTODOs().then(res => {
-            console.log(res.data)
             this.props.initTODOs(res.data)
         }).catch(err => console.log(err))
     }
@@ -14,8 +13,8 @@ class todoList extends React.Component {
     render() {
         return this.props.todoList.map(((value, index) =>
                 <TodoContainer key={index}
-                               hitStatus={value.hitStatus}
-                               text={this.props.todoList[index].text}
+                               status={value.status}
+                               content={this.props.todoList[index].content}
                                id={this.props.todoList[index].id}
                 />
         ))
