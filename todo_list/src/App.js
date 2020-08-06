@@ -8,10 +8,10 @@ import DoingTodoListContainer from "./container/DoingTodoListContainer";
 
 function App() {
     return (
-        <div className="App">
-            <header className="App-header">
-                <h2>TodoList</h2>
-                <Router>
+        <div>
+            <Router>
+                <header className="App-header">
+                    <h2>TodoList</h2>
                     <Link to="/">Init</Link>
                     <Link to="/doneTodoList">DoneTodoList</Link>
                     <Link to="/doingTodoList">DoingTodoList</Link>
@@ -20,9 +20,9 @@ function App() {
                         <Route exact path="/doneTodoList" component={DoneTodoListContainer}/>
                         <Route exact path="/doingTodoList" component={DoingTodoListContainer}/>
                     </Switch>
-                </Router>
-                <TodoFormContainer/>
-            </header>
+                    <TodoFormContainer/>
+                </header>
+            </Router>
         </div>
     );
 }
