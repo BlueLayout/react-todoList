@@ -1,5 +1,7 @@
 import * as React from "react";
 import {createTODOs} from "../../api/TodoListApi";
+import {Input, Button, Space} from "antd";
+import "./todoForm.css"
 
 class todoForm extends React.Component {
 
@@ -26,9 +28,14 @@ class todoForm extends React.Component {
     };
 
     render() {
-        return <div>
-            <input type="text" id="inputBox" value={this.state.text} onChange={this.handleChange}/>
-            <button onClick={this.addTodo}>add</button>
+        return <div className={"todo-form"}>
+            <Space>
+                <Input type="text" id="inputBox" value={this.state.text}
+                       onChange={this.handleChange}
+                       placeholder="Please Input Todo Content"
+                       style={{width: "300px"}}/>
+                <Button onClick={this.addTodo}>add</Button>
+            </Space>
         </div>
     }
 

@@ -1,14 +1,25 @@
 import * as React from "react";
 import './todo.css'
 import {updateTODOs, deleteTODOs} from "../../api/TodoListApi"
+import {Card, Button} from 'antd';
 
 class todo extends React.Component {
 
     render() {
-        return <div className={`${this.props.status ? 'is-done' : ''}`}
-                    onClick={this.handleMark}>
-            <span>{this.props.content}</span>
-            <span><button onClick={this.handleDelete}>x</button></span>
+        return <div className={"todo-card"}>
+            <Card
+                extra={<div>
+                    <Button onClick={this.handleMark}>Done</Button>
+                    <Button onClick={this.handleDelete}>Del</Button>
+                </div>}
+                size="small"
+            >
+                <div className={`${this.props.status ? 'is-done' : ''}`}>
+                    <span className={"todo-content"}>
+                        {this.props.content}
+                    </span>
+                </div>
+            </Card>
         </div>
     }
 
@@ -22,7 +33,6 @@ class todo extends React.Component {
     };
 
     handleMark = () => {
-        console.log(this.props.status)
         if (!this.props.status) {
             updateTODOs(this.props.id, {id: this.props.id, content: this.props.content, status: true})
                 .then(this.props.markDone(this.props.id))
